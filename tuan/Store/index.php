@@ -1,0 +1,80 @@
+<?php
+require "KhachHang.php";
+require "HangBan.php";
+require "CuaHang.php";
+    $lishKhang=[];
+    $customer1 = new KhachHang("KH001","Minh","Nam","Abc",123);
+    array_push($lishKhang,$customer1);
+    $customer2= new KhachHang("KH002","Nghia","Nam","DEF",456);
+    array_push($lishKhang,$customer2);
+    $customer3= new KhachHang("KH003","Tuan","Nam","Ghk",789);
+    array_push($lishKhang,$customer3);
+    $customer4= new KhachHang("KH004","Nhi","Nu","Ilm",012);
+    array_push($lishKhang,$customer4);
+    $customer5= new KhachHang("KH005","Nga","Nu","npo",345);
+    array_push($lishKhang,$customer5);
+    /*echo $customer1->__toString();
+    echo "<br/>";
+    echo $customer2->__toString();
+    echo "<br/>";
+    echo $customer3->__toString();
+    echo "<br/>";
+    echo $customer4->__toString();
+    echo "<br/>";
+    echo $customer5->__toString();
+    echo "<br/>";*/
+    $lishHang=[];
+    $hang1 = new Hang("MH001","Vai",100,10000);
+    array_push($lishHang,$hang1);
+    $hang2 = new Hang("MH002","Nho",200,25000);
+    array_push($lishHang,$hang2);
+    $hang3 = new Hang("MH003","Dua",000,15000);
+    array_push($lishHang,$hang3);
+    /*echo "<br/>";
+    echo $hang1->__toString();
+    echo "<br/>";
+    echo $hang2->__toString();
+    echo "<br/>";
+    echo $hang3->__toString();*/
+    $lishHangBan=[];
+    $hangBan1 = new HangBan("MH001","Vai",50,10000,15000,"Nghia");
+    array_push($lishHangBan,$hangBan1);
+    $hangBan2 = new HangBan("MH002","Nho",100,25000,40000,"Tuan");
+    array_push($lishHangBan,$hangBan1);
+    $hangBan3 = new HangBan("MH003","Dua",200,15000,20000,"Minh");
+    array_push($lishHangBan,$hangBan1);
+    $hangBan4 = new HangBan("MH003","Dua",100,15000,20000,"Nhi");
+    array_push($lishHangBan,$hangBan1);
+    $hangBan5 = new HangBan("MH002","Nho",120,25000,40000,"Nhi");
+    array_push($lishHangBan,$hangBan1);
+    $hangBan6 = new HangBan("MH001","Vai",250,10000,20000,"Nha");
+    array_push($lishHangBan,$hangBan1);
+    /*echo "<br/>";
+    echo "<br/>";
+    echo $hangBan1->__toString();
+    echo "<br/>";
+    echo $hangBan2->__toString();
+    echo "<br/>";
+    echo $hangBan3->__toString();
+    echo "<br/>";
+    echo $hangBan4->__toString();
+    echo "<br/>";
+    echo $hangBan5->__toString();
+    echo "<br/>";
+    echo $hangBan6->__toString();
+    echo "<br/>";
+    $loiNhuan = new CuaHang();
+    echo "<br/>";*/
+    /*echo ($loiNhuan->getLoiNhuan($hangBan1,$hangBan2,$hangBan3,$hangBan4,$hangBan5));
+    echo "<br/>";
+    echo json_encode ($loiNhuan->getHangTon($hang1,$hang2,$hang3));*/
+    $store = new CuaHang($lishHang,$lishHangBan,$lishKhang);
+    echo $store->__toString();
+    echo "<br/>";
+    echo $store->getLoiNhuan();
+    echo "<br/>";
+    echo json_encode($store->getMaxLoiNhuan());
+    echo "<br/>";
+    echo json_encode($store->getMaxLoiIch());
+   
+?>
